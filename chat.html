@@ -107,5 +107,32 @@ color:white;
 
   </div>
 
+<script>
+
+function sendMessage(){
+
+let input=document.getElementById("messageInput");
+
+if(input.value.trim()==""){
+return;
+}
+
+let chat=document.querySelector(".chat");
+
+chat.innerHTML += `
+<div class="message">
+<div class="name">👑 ✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦</div>
+<div class="text">${input.value}</div>
+</div>
+`;
+
+input.value="";
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+</script>
+
 </body>
 </html>
