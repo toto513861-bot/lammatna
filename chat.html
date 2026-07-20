@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدردشة - لمتنا</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#6a5acd;
+}
+
+.top{
+background:#5b4ac9;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:22px;
+}
+
+.chat{
+background:white;
+width:90%;
+max-width:450px;
+margin:20px auto;
+padding:20px;
+border-radius:20px;
+height:420px;
+overflow:auto;
+}
+
+.message{
+margin-bottom:20px;
+text-align:right;
+}
+
+.name{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.text{
+background:#f2f2f2;
+padding:12px;
+border-radius:12px;
+display:inline-block;
+max-width:80%;
+}
+
+.send{
+width:90%;
+max-width:450px;
+margin:20px auto;
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:12px;
+border:none;
+border-radius:12px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:12px;
+background:#5b4ac9;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+<div>⚙️</div>
+<button onclick="location.href='chat.html'">💬 الدردشة</button>
+</div>
+
+<div class="chat">
+
+<div class="message">
+<div class="name">👑 <bdi>✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦</bdi></div>
+<div class="text">
+أهلًا وسهلًا بكم في 💜 لمتنا.<br><br>
+يسعدني وجودكم هنا، وإن شاء الله يكون هذا المكان مليان احترام، وصداقات جميلة، ولحظات حلوة للجميع 🌷
+</div>
+</div>
+
+</div>
+
+<div class="send">
+<input placeholder="اكتب رسالتك...">
+<button>إرسال</button>
+</div>
+
+</body>
+</html>
