@@ -185,6 +185,26 @@ input.value = "";
 
 window.sendMessage = sendMessage;
 
+// نجيب الرسايل من Firebase ونعرضها تلقائي
+const chat = document.querySelector(".chat");
+const q = collection(db, "messages");
+
+onSnapshot(q, (snapshot) => {
+  chat.innerHTML = "";
+
+  snapshot.forEach((doc) => {
+    const msg = doc.data();
+
+    chat.innerHTML += `
+    <div class="message">
+      <div class="name">${msg.name}</div>
+      <div class="text">${msg.text}</div>
+    </div>
+    `;
+  });
+
+  chat.scrollTop = chat.scrollHeight;
+});
 const plus = document.getElementById("plus");
 const menu = document.getElementById("menu");
 
