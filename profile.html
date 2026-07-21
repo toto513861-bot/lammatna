@@ -2,9 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ملفي - لمتنا</title>
@@ -66,6 +64,7 @@ align-items:center;
 gap:10px;
 font-size:22px;
 font-weight:bold;
+margin-bottom:20px;
 }
 
 .rank{
@@ -80,6 +79,7 @@ color:black;
 font-size:18px;
 margin:12px 0;
 color:#333;
+text-align:right;
 }
 
 hr{
@@ -101,17 +101,13 @@ cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="top">
-
 <div class="settings">⚙️</div>
-
 <div class="logo">💜 لمتنا</div>
-
 </div>
 
 <div class="box">
@@ -119,20 +115,17 @@ cursor:pointer;
 <div class="avatar">👤</div>
 
 <div class="userInfo">
-
 <span class="rank">💎 عضو مميز</span>
-
-<span class="username">اسم المستخدم</span>
-
+<span class="username" id="username">اسم المستخدم</span>
 </div>
 
 <hr>
 
-<p class="info">🎂 العمر: --</p>
+<p class="info" id="age">🎂 العمر: --</p>
 
-<p class="info">⚧️ الجنس: --</p>
+<p class="info" id="gender">⚧️ الجنس: --</p>
 
-<p class="info">📅 انضم في: --</p>
+<p class="info" id="joinDate">📅 انضم في: --</p>
 
 <hr>
 
@@ -142,6 +135,21 @@ cursor:pointer;
 
 </div>
 
-</body>
+<script>
 
+document.getElementById("username").textContent =
+localStorage.getItem("username") || "اسم المستخدم";
+
+document.getElementById("age").textContent =
+"🎂 العمر: " + (localStorage.getItem("age") || "--");
+
+document.getElementById("gender").textContent =
+"⚧️ الجنس: " + (localStorage.getItem("gender") || "--");
+
+document.getElementById("joinDate").textContent =
+"📅 انضم في: " + (localStorage.getItem("joinDate") || "--");
+
+</script>
+
+</body>
 </html>
