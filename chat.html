@@ -151,8 +151,9 @@ import {
 getFirestore,
 collection,
 addDoc,
-onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+onSnapshot,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpDrhBD7nqu_CZqrRu6iPiZd0ZkGwmRc0",
@@ -177,7 +178,7 @@ return;
 await addDoc(collection(db, "messages"), {
   name: "👑 ✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦",
   text: input.value,
-  time: Date.now()
+  time: serverTimestamp()
 });
 
 input.value = "";
@@ -187,7 +188,7 @@ window.sendMessage = sendMessage;
 
 // نجيب الرسايل من Firebase ونعرضها تلقائي
 const chat = document.querySelector(".chat");
-const q = collection(db, "messages");
+const q = query(collection(db, "messages"), orderBy("time", "asc"));
 
 onSnapshot(q, (snapshot) => {
   chat.innerHTML = "";
