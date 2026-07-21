@@ -73,6 +73,23 @@ border-radius:12px;
 background:#5b4ac9;
 color:white;
 }
+  .menu{
+display:none;
+background:white;
+width:90%;
+max-width:450px;
+margin:10px auto;
+padding:15px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.menu button{
+width:100%;
+margin:6px 0;
+background:#eeeeee;
+color:black;
+} 
 </style>
 </head>
 
@@ -125,8 +142,8 @@ color:white;
 
 </div>
 
-  
-<script>
+
+  <script>
 
 function sendMessage(){
 
@@ -150,6 +167,23 @@ input.value="";
 chat.scrollTop=chat.scrollHeight;
 
 }
+
+const plus = document.getElementById("plus");
+const menu = document.getElementById("menu");
+
+plus.onclick = function () {
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+};
+
+document.addEventListener("click", function (e) {
+    if (!menu.contains(e.target) && e.target !== plus) {
+        menu.style.display = "none";
+    }
+});
 
 </script>
 
