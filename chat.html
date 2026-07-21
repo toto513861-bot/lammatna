@@ -144,31 +144,46 @@ color:black;
 
 <input type="file" id="imageInput" accept="image/*" style="display:none;">
   
-  <script>
+<script type="module">
 
-    
-function sendMessage(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { 
+getFirestore,
+collection,
+addDoc,
+onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCpDrhBD7nqu_CZqrRu6iPiZd0ZkGwmRc0",
+  authDomain: "lammatna-7e157.firebaseapp.com",
+  projectId: "lammatna-7e157",
+  storageBucket: "lammatna-7e157.firebasestorage.app",
+  messagingSenderId: "1054786720463",
+  appId: "1:1054786720463:web:cfd359c56a82fc6b5e5dba"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function sendMessage(){
 let input=document.getElementById("messageInput");
 
 if(input.value.trim()==""){
 return;
 }
 
-let chat=document.querySelector(".chat");
+// نحفظ الرسالة في Firebase
+await addDoc(collection(db, "messages"), {
+  name: "👑 ✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦",
+  text: input.value,
+  time: Date.now()
+});
 
-chat.innerHTML += `
-<div class="message">
-<div class="name">👑 ✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦</div>
-<div class="text">${input.value}</div>
-</div>
-`;
-
-input.value="";
-
-chat.scrollTop=chat.scrollHeight;
-
+input.value = "";
 }
+
+window.sendMessage = sendMessage;
 
 const plus = document.getElementById("plus");
 const menu = document.getElementById("menu");
@@ -189,12 +204,13 @@ document.addEventListener("click", function (e) {
 
     const imageBtn = document.getElementById("imageBtn");
 const imageInput = document.getElementById("imageInput");
-
 imageBtn.onclick = function () {
-    imageInput.click();
+ imageInput.click();
 };
+
     
 </script>
 
 </body>
 </html>
+
