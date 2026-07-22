@@ -177,7 +177,7 @@ return;
 
 // نحفظ الرسالة في Firebase
 await addDoc(collection(db, "messages"), {
-  name: "👑 ✦ كـارهـ𝓗𝓪𝓽𝓮𝓻𝓼ــتـهـم ✦",
+name: localStorage.getItem("name") || "زائر",
   text: input.value,
   time: serverTimestamp()
 });
